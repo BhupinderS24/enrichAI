@@ -1,0 +1,45 @@
+<div
+  style="
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    font-size: 11px;
+    margin-bottom: 30px;
+  "
+>
+  <ng-container *ngFor="let box of viewBox">
+    <app-small-box-info [box]="box"></app-small-box-info>
+  </ng-container>
+</div>
+
+<div style="display: flex; justify-content: center">
+  <div style="width: 90%">
+    <div *ngFor="let box of viewBigBox">
+      <div class="col-md-6">
+        <div style="font-size: 16px; font-weight: 500; margin-bottom: 20px">
+          {{ box.name }}
+        </div>
+        <mat-card
+          style="
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+          "
+        >
+          <app-charts
+            *ngIf="showCharts"
+            [chartDatasets]="box.data"
+            [chartLabels]="box.labels"
+            [chartColors]="box.color"
+            [chartType]="box.chart"
+            [chartOptions]="box.chartOptions"
+          ></app-charts>
+
+          <!-- <app-big-box-info [box]="box"></app-big-box-info> -->
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

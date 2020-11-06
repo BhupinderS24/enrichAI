@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~ngx-toastr/toastr";
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+table.mat-table {
+  border-spacing: 0;
+  width: 100%;
+}
+
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+  height: 36px !important;
+}
+
+.mat-tab-body.mat-tab-body-active {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  z-index: 1;
+  flex-grow: 1;
+}
+
+.mat-tab-group .mat-tab-body-wrapper .mat-tab-body .mat-tab-body-content {
+  height: 100%;
+  overflow: hidden;
+}
+
+.mat-tab-label {
+  min-width: 25px !important;
+  padding: 5px;
+  background-color: transparent;
+  font-weight: 700;
+}
+
+.mat-tab-labels {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mat-tab-label.mat-tab-label-active {
+  color: rgb(255, 0, 0);
+}
+
+.mat-ink-bar {
+  background-color: rgb(255, 0, 0);
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background: rgb(255, 0, 0);
+}
