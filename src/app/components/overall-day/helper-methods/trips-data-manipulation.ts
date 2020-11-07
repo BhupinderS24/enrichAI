@@ -24,7 +24,7 @@ const chartOptions: any = {
 
 const chartColorsLine: Array<any> = [
   {
-    backgroundColor: 'rgba(105, 0, 132, .2)',
+    backgroundColor: 'rgba(0, 137, 132, .2)',
     borderColor: 'rgba(200, 99, 132, .7)',
     borderWidth: 1,
   },

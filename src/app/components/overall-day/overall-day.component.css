@@ -1,0 +1,15 @@
+.small-box-container {
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  font-size: 11px;
+  margin-bottom: 30px;
+}
+
+.chart-container {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}

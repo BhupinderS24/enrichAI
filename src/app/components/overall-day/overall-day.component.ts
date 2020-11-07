@@ -44,7 +44,6 @@ export class OverallDayComponent implements OnInit {
     },
     {
       name: 'Fuel',
-
       chart: 'line',
     },
     {
@@ -82,13 +81,10 @@ export class OverallDayComponent implements OnInit {
         }
 
         this.viewBigBox[index]['data'] = data[name].datasets;
-
         this.viewBigBox[index]['labels'] = data[name].labels;
       }
 
-      console.log(this.viewBigBox);
       this.showCharts = true;
-      console.log('DATTTTTAAAAA', data);
     });
   }
 }

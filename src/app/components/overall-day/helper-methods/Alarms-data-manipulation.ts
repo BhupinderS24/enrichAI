@@ -27,7 +27,6 @@ export const getAlarmsChartOptions = () => {
 };
 
 export const getAlarmsChartColors = (alrData) => {
-  // return chartColorsLine;
   let alarmsChartColors = [];
 
   alrData.forEach((stackedChart) => {

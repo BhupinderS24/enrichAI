@@ -1,15 +1,9 @@
 <mat-card class="custom-box">
-  <div style="width: 100%; display: flex; justify-content: flex-end">
-    <img
-      *ngIf="box.icon !== ''"
-      class="float-left"
-      style="width: 30px; position: relative; right: 5px"
-      src="{{ box.icon }}"
-      alt="Kiwi standing on oval"
-    />
+  <div class="icon-container">
+    <img *ngIf="box.icon !== ''" class="img-style" src="{{ box.icon }}" />
     <div *ngIf="box.icon === ''"></div>
   </div>
-  <div style="height: 25px; display: flex; align-items: center">
+  <div class="box-text">
     {{ box.name }}
   </div>
   <div>{{ box.value }}</div>
