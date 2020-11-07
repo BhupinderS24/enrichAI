@@ -16,6 +16,8 @@ import {
   getAlarmsChartOptions,
   getAlarmsChartColors,
 } from './helper-methods/Alarms-data-manipulation';
+
+import { DataService } from '../../common/services/data.service';
 @Component({
   selector: 'app-overall-day',
   templateUrl: './overall-day.component.html',
@@ -52,39 +54,48 @@ export class OverallDayComponent implements OnInit {
     },
   ];
 
-  constructor(private networkCall: NetworkCallsService) {}
+  constructor(
+    private networkCall: NetworkCallsService,
+    private dataService: DataService
+  ) {}
 
   ngOnInit(): void {
-    this.networkCall.getChartData().subscribe((data: any) => {
-      for (let index in this.viewBigBox) {
-        let name = this.viewBigBox[index].name;
+    this.dataService.currentData.subscribe((data: any) => {
+      if (Object.keys(data).length !== 0) {
+        for (let index in this.viewBigBox) {
+          let name = this.viewBigBox[index].name;
 
-        switch (name) {
-          case 'Distance':
-            this.viewBigBox[index].chartOptions = getDistanceChartOptions();
-            this.viewBigBox[index].colors = getDistanceChartColors();
-            break;
-          case 'Fuel':
-            this.viewBigBox[index].chartOptions = getFuelChartOptions();
-            this.viewBigBox[index].colors = getFuelChartColors();
-            break;
-          case 'Trips':
-            this.viewBigBox[index].chartOptions = getTripsChartOptions();
-            this.viewBigBox[index].colors = getTripsChartColors();
-            break;
-          case 'Alarms':
-            this.viewBigBox[index].chartOptions = getAlarmsChartOptions();
-            this.viewBigBox[index].colors = getAlarmsChartColors(
-              data[name].datasets
-            );
-            break;
+          switch (name) {
+            case 'Distance':
+              this.viewBigBox[index].chartOptions = getDistanceChartOptions();
+              this.viewBigBox[index].colors = getDistanceChartColors();
+              break;
+            case 'Fuel':
+              this.viewBigBox[index].chartOptions = getFuelChartOptions();
+              this.viewBigBox[index].colors = getFuelChartColors();
+              break;
+            case 'Trips':
+              this.viewBigBox[index].chartOptions = getTripsChartOptions();
+              this.viewBigBox[index].colors = getTripsChartColors();
+              break;
+            case 'Alarms':
+              this.viewBigBox[index].chartOptions = getAlarmsChartOptions();
+              this.viewBigBox[index].colors = getAlarmsChartColors(
+                data[name].datasets
+              );
+              break;
+          }
+
+          this.viewBigBox[index]['data'] = data[name].datasets;
+          this.viewBigBox[index]['labels'] = data[name].labels;
         }
 
-        this.viewBigBox[index]['data'] = data[name].datasets;
-        this.viewBigBox[index]['labels'] = data[name].labels;
+        this.showCharts = true;
       }
-
-      this.showCharts = true;
     });
+
+    //     this.networkCall.getChartData().subscribe((data: any) => {
+
+    // });
   }
 }
